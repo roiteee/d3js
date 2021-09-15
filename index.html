@@ -6,12 +6,11 @@
 </head>
 
 <body>
-    <div class="test">Hello World!</div>
-    <div class="test3 anotherClass">Hello World!</div>
+    <h2 class="myClass">Message</div>
+    <div class="myClass">Hello World!</div>
 
     <script>
-        d3.select("div.test").classed("test2", true)
-        d3.select("div.test3").classed("anotherClass", false)
+        d3.selectAll("div.myClass").attr("color:red; background-color:black;")
 
     </script>
 </body>
