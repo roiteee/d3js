@@ -7,8 +7,12 @@
 
 <body>
     <div class="test">Hello World!</div>
+    <div class="test2 anotherClass">Hello World!</div>
+
     <script>
-        d3.select("div.test").style("color", "red").style("background-color", "black")
+        d3.select("div.test").classed("test2", true)
+        d3.select("div.test2").classed("anotherClass", false)
+
     </script>
 </body>
 
