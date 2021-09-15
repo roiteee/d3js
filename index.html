@@ -10,10 +10,15 @@
         <li></li>
         <li></li>
     </ul>
+    <button onclick="remove()">Remove 50</button>
 
     <script>
         d3.select("#list").selectAll("li").data([10, 20, 30, 40, 50]).text((d) => "This is preexisting li " + d)
                 .enter().append("li").text((d) => "This is dynamically created li " + d)
+
+        function remove() {
+            d3.selectAll("li").data([10,20,30,40]).exit().remove()
+        }
     </script>
 </body>
 
