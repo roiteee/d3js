@@ -6,12 +6,13 @@
 </head>
 
 <body>
-    <h2 class="myClass">Message</div>
-    <div class="myClass">Hello World!</div>
+    <ul id="list">
+        <li></li>
+        <li></li>
+    </ul>
 
     <script>
-        d3.selectAll(".myClass").attr("style", "color:red; background-color:black;")
-
+        d3.select("#list").selectAll("li").data([10,20,30,40,50]).style("color", "red")
     </script>
 </body>
 
