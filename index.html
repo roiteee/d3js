@@ -3,18 +3,47 @@
 
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg rect {
+            fill: gray;
+        }
+        svg text {
+            fill: yellow;
+            font: 12px sans-serif;
+            text-anchor: end;
+        }
+    </style>
 </head>
 
 <body>
-    <h3>Simple transitions</h3>
     <script>
-        d3.select("body").style("background-color", "lightblue")
-            // make the background-color lightblue
-            .transition()
-            .duration(2000)
-            .style("background-color", "gray");
-             // make the background-color gray
-        d3.select("h3").transition().style("font-size", "2rem").delay(3000).duration(2000)
+        let data = [10, 5, 12, 15]
+
+        let width = 300
+        let scalefactor = 20
+        let barHeight = 30
+
+        let graph = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", barHeight * data.length)
+
+        let bar = graph.selectAll("g")
+            .data(data)
+            .enter()
+            .append("g")
+            .attr("transform", (d, i)=> "translate(0," + i * barHeight + ")")
+
+        bar.append("rect")
+            .attr("width", (d)=> d*scalefactor)
+            .attr("height", barHeight - 1)
+        
+        bar.append("text")
+            .attr("x", (d)=> d*scalefactor)
+            .attr("y", barHeight / 2)
+            .attr("dy", ".35em")
+            .text((d)=> d)
+        
     </script>
 </body>
 
